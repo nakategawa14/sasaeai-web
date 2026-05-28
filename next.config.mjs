@@ -1,17 +1,8 @@
-import path from "path";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    config.resolve.alias["@"] = path.resolve(__dirname);
-    return config;
-  },
-  reactStrictMode: true,
+  // Turbopack を有効化（空設定でOK）
+  turbopack: {},
 };
 
 export default nextConfig;
-
-export default {
-  turbopack: {},
-};
 
