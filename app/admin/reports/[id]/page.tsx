@@ -20,8 +20,8 @@ async function fetchReportDetailForAdmin(reportId: string) {
     }
 
     const relatedUserIds = [reportRow.reporter_id, reportRow.reported_user_id].filter(Boolean) as string[]
-    let reporter: SasaeaiReportDetail["reporter"] = null
-    let reportedUser: SasaeaiReportDetail["reported_user"] = null
+    let reporter: SasaeaiReportDetail["reporter"] = undefined
+    let reportedUser: SasaeaiReportDetail["reported_user"] = undefined
 
     if (relatedUserIds.length > 0) {
       const { data: profileRows } = await service
@@ -29,8 +29,8 @@ async function fetchReportDetailForAdmin(reportId: string) {
         .select("id, user_id, nickname, email, profile_images, is_active, status")
         .in("id", relatedUserIds)
 
-      reporter = profileRows?.find((p) => p.id === reportRow.reporter_id) ?? null
-      reportedUser = profileRows?.find((p) => p.id === reportRow.reported_user_id) ?? null
+      reporter = profileRows?.find((p) => p.id === reportRow.reporter_id) ?? undefined
+      reportedUser = profileRows?.find((p) => p.id === reportRow.reported_user_id) ?? undefined
     }
 
     const { data: logs } = await service

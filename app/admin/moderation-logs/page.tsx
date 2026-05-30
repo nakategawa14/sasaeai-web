@@ -17,6 +17,9 @@ const actionTypeLabels: Record<ModerationActionType, string> = {
   content_removed: "コンテンツを削除",
   verification_approved: "本人確認を承認",
   verification_rejected: "本人確認を却下",
+  admin_official_dm: "運営公式メッセージ送信",
+  admin_warning_email: "注意喚起メール送信",
+  user_forced_deactivation: "強制退会",
 }
 
 const getActionLabel = (actionType: ModerationActionType): string => {

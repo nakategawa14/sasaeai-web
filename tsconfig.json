@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -20,7 +24,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     }
   },
   "include": [
@@ -31,5 +37,27 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "components/admin/AdminWebRedirectScreen.tsx",
+    "components/brand/**",
+    "components/EditScreenInfo.tsx",
+    "components/ExternalLink.tsx",
+    "components/legal/LegalPolicyPressableLink.tsx",
+    "components/matching/**",
+    "components/navigation/StackBackButton.tsx",
+    "components/Themed.tsx",
+    "components/StyledText.tsx",
+    "components/useColorScheme.ts",
+    "lib/linking/legalPublicDocuments.ts",
+    "lib/linking/openExternalHttpsUrl.ts",
+    "lib/notifications/registerExpoPushToken.ts",
+    "lib/notifications/clearExpoPushToken.ts",
+    "lib/supabase.ts",
+    "lib/verify/optimizeImage.ts",
+    "lib/theme/brandScreen.ts",
+    "lib/profile/uploadProfileImage.ts",
+    "lib/blocks/userBlockActions.ts",
+    "lib/linking/admin-web-url.ts"
+  ]
 }

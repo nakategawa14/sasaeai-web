@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { ServiceWorkerRegister } from "@/components/notifications/service-worker-register"
 import { SuspensionCheckWrapper } from "@/components/auth/suspension-check-wrapper"
 import { PWAInstallPrompt } from "@/components/pwa/install-prompt"
+import { Toaster } from "@/components/ui/toaster"
 import "./globals.css"
 
 const notoSansJP = Noto_Sans_JP({
@@ -58,6 +59,7 @@ export default function RootLayout({
 
       <body className={`${notoSansJP.variable} font-sans antialiased`}>
         <SuspensionCheckWrapper>{children}</SuspensionCheckWrapper>
+        <Toaster />
         <Analytics />
         <ServiceWorkerRegister />
         <PWAInstallPrompt />

@@ -16,12 +16,7 @@ export default async function AdminReportsPage({ searchParams }: { searchParams:
   const profile = user ? await fetchAdminHeaderProfile(user.id) : null
 
   const rawStatus = sp.status
-  const statusFilter =
-    typeof rawStatus === "string"
-      ? rawStatus.trim() || undefined
-      : Array.isArray(rawStatus) && rawStatus.length > 0
-        ? String(rawStatus[0]).trim() || undefined
-        : undefined
+  const statusFilter = typeof rawStatus === "string" ? rawStatus.trim() || undefined : undefined
 
   const reportEmbedSelect = `
       *,

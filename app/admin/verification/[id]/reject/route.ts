@@ -2,7 +2,8 @@ import { NextResponse } from "next/server"
 import { createServerClient } from "@/lib/supabase/server"
 import { TABLES } from "@/lib/supabase/table-names"
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const supabase = await createServerClient()
 
   const {
@@ -28,7 +29,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
       selfie_verification_image_url: null,
       is_verified: false,
     })
-    .eq("id", params.id)
+    .eq("id", id)
 
   if (error) {
     console.error("[v0] Verification rejection error:", error)
